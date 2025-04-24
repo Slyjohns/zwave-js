@@ -11663,6 +11663,8 @@ export interface ManufacturerProprietaryCCOptions {
     // (undocumented)
     manufacturerId?: number;
     // (undocumented)
+    payload?: Uint8Array;
+    // (undocumented)
     unspecifiedExpectsResponse?: boolean;
 }
 
@@ -12981,7 +12983,7 @@ export interface MultiChannelCCV1CommandEncapsulationOptions {
 export class MultiChannelCCV1Get extends MultiChannelCC {
     constructor(options: WithAddress<MultiChannelCCV1GetOptions>);
     // (undocumented)
-    static from(_raw: CCRaw, _ctx: CCParsingContext_2): MultiChannelCCV1Get;
+    static from(raw: CCRaw, ctx: CCParsingContext_2): MultiChannelCCV1Get;
     // (undocumented)
     requestedCC: CommandClasses;
     // (undocumented)
@@ -13009,6 +13011,8 @@ export class MultiChannelCCV1Report extends MultiChannelCC {
     static from(raw: CCRaw, ctx: CCParsingContext_2): MultiChannelCCV1Report;
     // (undocumented)
     readonly requestedCC: CommandClasses;
+    // (undocumented)
+    serialize(ctx: CCEncodingContext_2): Promise<Bytes>;
     // (undocumented)
     toLogEntry(ctx?: GetValueDB): MessageOrCCLogEntry;
 }
